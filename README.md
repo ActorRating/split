@@ -42,6 +42,7 @@ In **Project → Settings → Build & Deployment**:
 | **Build Command** | `npm run build` (default) |
 | **Output Directory** | *(leave empty — do not set `.next` or `out`)* |
 | **Install Command** | `npm install` (default) |
+| **Node.js Version** | `24.x` (matches `engines` in `package.json`) |
 
 If Framework Preset is “Other” or Output Directory is set manually, Vercel serves an empty folder and you get **`404: NOT_FOUND`**.
 
