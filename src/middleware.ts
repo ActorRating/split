@@ -1,8 +1,14 @@
-import { type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 
 export async function middleware(request: NextRequest) {
-  return updateSession(request);
+  try {
+    return await updateSession(request);
+  } catch (err) {
+    // Never block the request if session refresh fails (e.g. missing env on Vercel)
+    console.error("[middleware] unhandled error", err);
+    return NextResponse.next({ request });
+  }
 }
 
 export const config = {
