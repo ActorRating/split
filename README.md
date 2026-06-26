@@ -57,15 +57,29 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 
 Apply to **Production**, **Preview**, and **Development**.
 
-### 4. Deploy
+### 4. Deployment Protection (fixes most “404” reports)
 
-Push to `main` or click **Redeploy** in the Vercel dashboard (uncheck “Use existing Build Cache” if the first deploy failed).
+Your project is under the **cine-post** team. The live production URL is:
 
-Production URL will look like: `https://split-xxxx.vercel.app` (assigned by Vercel — not `split.vercel.app`, which is a different project).
+**https://split-cine-post.vercel.app**
 
-### 5. Admin
+Do **not** use `split.vercel.app` (another company) or `split-actorrating.vercel.app` (does not exist — returns `DEPLOYMENT_NOT_FOUND`).
 
-Visit `https://your-deployment.vercel.app/admin/login` with your Supabase email/password admin account.
+If **Standard Protection** is enabled, Vercel blocks public visitors (redirect to login / looks broken). To make the site public:
+
+1. Vercel Dashboard → **split** project → **Settings** → **Deployment Protection**
+2. Under **Vercel Authentication**, set scope to **Only Preview Deployments** (not “Standard” / “All deployments”)
+3. Save and open **https://split-cine-post.vercel.app** in an incognito window
+
+You should see the Split poll UI, not a Vercel error page.
+
+### 5. Deploy
+
+Push to `main` or click **Redeploy** in the Vercel dashboard.
+
+### 6. Admin
+
+Visit `https://split-cine-post.vercel.app/admin/login` with your Supabase email/password admin account.
 
 ## Scripts
 
